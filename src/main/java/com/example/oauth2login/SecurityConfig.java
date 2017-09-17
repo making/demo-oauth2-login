@@ -7,13 +7,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.configurers.oauth2.client.OAuth2LoginConfigurer;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.oauth2.client.registration.ClientRegistration;
 import org.springframework.security.oauth2.client.registration.ClientRegistrationProperties;
 import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
 import org.springframework.security.oauth2.client.registration.InMemoryClientRegistrationRepository;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 import java.net.URI;
 import java.util.List;
@@ -46,16 +43,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .map(c -> new ClientRegistration.Builder(c).build()) //
                 .collect(Collectors.toList());
         return new InMemoryClientRegistrationRepository(registrations);
-    }
-
-    @Bean
-    public UserDetailsService userDetailsService() {
-        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-        manager.createUser(User.withUsername("demo") //
-                .password("demo") //
-                .roles("USER") //
-                .build());
-        return manager;
     }
 
     public Map<String, ClientRegistrationProperties> getClients() {
