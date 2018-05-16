@@ -16,7 +16,6 @@ public class HelloController {
 	@GetMapping("/")
 	public Object hello(@AuthenticationPrincipal OAuth2User user) {
 		System.out.println(user);
-		System.out.println(user.getClass());
 		Map<String, Object> res = new LinkedHashMap<>();
 		res.put("class", user.getClass());
 		res.put("name", user.getName());
