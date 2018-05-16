@@ -1,4 +1,4 @@
-package com.example.oauth2login;
+package com.example.demooauth2login;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

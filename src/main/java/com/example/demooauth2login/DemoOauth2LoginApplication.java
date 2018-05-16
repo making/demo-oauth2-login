@@ -1,4 +1,4 @@
-package com.example.oauth2login;
+package com.example.demooauth2login;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
