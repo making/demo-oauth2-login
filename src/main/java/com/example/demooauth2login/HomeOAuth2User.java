@@ -46,25 +46,24 @@ public class HomeOAuth2User implements OAuth2User {
 		Map<String, Object> attr = new LinkedHashMap<>();
 		attr.put("id", this.id);
 		attr.put("email", this.email);
-		attr.put("givenName", this.givenName);
-		attr.put("familyName", this.familyName);
+		attr.putAll(name);
 		this.attributes = Collections.unmodifiableMap(attr);
 	}
 
 	public String getId() {
-		return id;
+		return this.id;
 	}
 
 	public String getEmail() {
-		return email;
+		return this.email;
 	}
 
 	public String getGivenName() {
-		return givenName;
+		return this.givenName;
 	}
 
 	public String getFamilyName() {
-		return familyName;
+		return this.familyName;
 	}
 
 	@Override
